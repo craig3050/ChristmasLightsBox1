@@ -18,6 +18,11 @@ def effect_change(area_name, effect_name):
     message = "{\"state\":\"ON\",\"effect\":" + effect_name + "}"
     publish.single(area_name, message, hostname="192.168.0.14")
 
+def animation_speed(area_name, speed):
+    message = "{\"transition\":" + str(speed) + "}"
+    publish.single(area_name, message, hostname="192.168.0.14")
+
+
 def main():
     bright_value = input("Enter Brightness Value to Send: ")
     brightness(area_name, bright_value)
@@ -26,6 +31,8 @@ def main():
     B = input("Enter B: ")
     colour_change(area_name, R, G, B)
     effect_change(area_name, effect_name)
+    speed = input("Enter Animation Speed: ")
+    animation_speed(area_name, speed)
 
 
 if __name__ == '__main__':
