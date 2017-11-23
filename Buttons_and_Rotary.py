@@ -122,8 +122,8 @@ def main():
             Brightness = Brightness + NewCounter1 * abs(NewCounter1)  # Decrease or increase Brightness
             if Brightness < 0:  # limit Brightness to 0...100
                 Brightness = 0
-            if Brightness > 100:  # limit Brightness to 0...100
-                Brightness = 100
+            if Brightness > 254:  # limit Brightness to 0...100
+                Brightness = 254
             print NewCounter1, Brightness  # some test print
 
 
@@ -136,8 +136,8 @@ def main():
             Animation_Speed = Animation_Speed + NewCounter2 * abs(NewCounter2)  # Decrease or increase Brightness
             if Animation_Speed < 0:  # limit Brightness to 0...100
                 Animation_Speed = 0
-            if Animation_Speed > 100:  # limit Brightness to 0...100
-                Animation_Speed = 100
+            if Animation_Speed > 254:  # limit Brightness to 0...100
+                Animation_Speed = 254
             print NewCounter2, Animation_Speed  # some test print
             
             
