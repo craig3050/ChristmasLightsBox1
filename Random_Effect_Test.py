@@ -1,29 +1,29 @@
 import random
 
 
-Number_of_Effects = 18
 
-
-effect_0 = "bpm"
-effect_1 = "candy cane"
-effect_2 = "confetti"
-effect_3 = "cyclon rainbow"
-effect_4 = "dots"
-effect_5 = "fire"
-effect_6 = "glitter"
-effect_7 = "juggle"
-effect_8 = "lightning"
-effect_9 = "noise"
-effect_10 = "police all"
-effect_11 = "police one"
-effect_12 = "rainbow"
-effect_13 = "rainbow with glitter"
-effect_14 = "ripple"
-effect_15 = "sinelon"
-effect_16 = "solid"
-effect_17 = "twinkle"
 
 def random_effect():
+    Number_of_Effects = 18
+    effect_0 = "bpm"
+    effect_1 = "candy cane"
+    effect_2 = "confetti"
+    effect_3 = "cyclon rainbow"
+    effect_4 = "dots"
+    effect_5 = "fire"
+    effect_6 = "glitter"
+    effect_7 = "juggle"
+    effect_8 = "lightning"
+    effect_9 = "noise"
+    effect_10 = "police all"
+    effect_11 = "police one"
+    effect_12 = "rainbow"
+    effect_13 = "rainbow with glitter"
+    effect_14 = "ripple"
+    effect_15 = "sinelon"
+    effect_16 = "solid"
+    effect_17 = "twinkle"
+
     effect_chosen = random.randrange(1, Number_of_Effects)
     print(effect_chosen)
     if effect_chosen == 0:

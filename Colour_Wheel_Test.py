@@ -3,7 +3,7 @@
 
 
 def colour_wheel(encoder0Pos):
-    encoder0Pos = (encoder0Pos+1)*(6)
+    encoder0Pos = ((encoder0Pos+1)*(6))
     # Red to yellow
     if (encoder0Pos <= 255):
         colorVal = encoder0Pos
@@ -49,10 +49,10 @@ def colour_wheel(encoder0Pos):
     return (redVal,greenVal, blueVal)
 
 if __name__ == '__main__':
-    colours = colour_wheel()
+    colours = colour_wheel(50)
     red_value = colours[0]
     green_value = colours[1]
     blue_value = colours[2]
-    print red_value
-    print green_value
-    print blue_value
+    print(red_value)
+    print(green_value)
+    print(blue_value)
