@@ -180,11 +180,11 @@ def colour_change(area_name, R, G, B):
         colour = "{\"r\":" + str(R) + ",\"g\":" + str(G) + ",\"b\":" + str(B) + "},\"effect\":\"solid\""
         message = "{\"state\":\"ON\",\"color\":" + colour + "}"
         publish.single(area_name1, message, hostname="192.168.0.14")
-        time.sleep(0.05)
+        time.sleep(0.01)
     else:
         for i in range(1,8):
             colour_change(i, R, G, B)
-            time.sleep(0.05)
+            time.sleep(0.01)
 
 
 def brightness(area_name, brightness_value):
@@ -193,12 +193,12 @@ def brightness(area_name, brightness_value):
         area_name1 = area_name_translation(area_name)
         message = "{\"state\":\"ON\",\"brightness\":" + str(brightness_value) + "}"
         publish.single(area_name1, message, hostname="192.168.0.14")
-        time.sleep(0.05)
+        time.sleep(0.01)
     else:
         for i in range(1, 8):
             print(i)
             brightness(i, brightness_value)
-            time.sleep(0.05)
+            time.sleep(0.01)
 
 
 def effect_change(area_name, effect_name):
@@ -207,11 +207,11 @@ def effect_change(area_name, effect_name):
         effect_name = "\"" + effect_name + "\""
         message = "{\"state\":\"ON\",\"effect\":" + effect_name + "}"
         publish.single(area_name1, message, hostname="192.168.0.14")
-        time.sleep(0.05)
+        time.sleep(0.01)
     else:
         for i in range(1, 8):
             effect_change(i, effect_name)
-            time.sleep(0.05)
+            time.sleep(0.01)
 
 
 def animation_speed(area_name, speed):
@@ -219,11 +219,11 @@ def animation_speed(area_name, speed):
         area_name1 = area_name_translation(area_name)
         message = "{\"transition\":" + str(speed) + "}"
         publish.single(area_name1, message, hostname="192.168.0.14")
-        time.sleep(0.05)
+        time.sleep(0.01)
     else:
         for i in range(1, 8):
             animation_speed(i, speed)
-            time.sleep(0.05)
+            time.sleep(0.01)
 
 
 
@@ -343,39 +343,45 @@ def main():
             print('Button Pressed 33...')
             Animation_Speed_to_Colour_Change = 1 #flag for changing the function of Animation speed
             Initial_Counter = 0
-            time.sleep(0.05)
+            time.sleep(0.01)
             publish.single("Christmas_Lights_Log", "Colour_Change_Button_Pressed", hostname="192.168.0.14")
         elif GPIO.input(31) == False:
             print('Button Pressed 31...')
             Area_Selected = 8
             Initial_Counter = 0
-            time.sleep(0.05)
+            time.sleep(0.01)
             publish.single("Christmas_Lights_Log", "All_Area_Button_Pressed", hostname="192.168.0.14")
+            time.sleep(0.01)
+            colour_change(Area_Selected, 254, 50, 50)
+            time.sleep(0.01)
         elif GPIO.input(32) == False:
             print('Button Pressed 32...')
             Area_Selected += 1
             Initial_Counter = 0
             if Area_Selected > 7:
                 Area_Selected = 1
-            time.sleep(0.05)
+            time.sleep(0.01)
             publish.single("Christmas_Lights_Log", "Select_Area_Button_Pressed", hostname="192.168.0.14")
         elif GPIO.input(29) == False:
             print('Button Pressed 29...')
             Animation_Speed_to_Colour_Change = 0
             effect = random_effect()
             effect_change(Area_Selected, effect)
+            time.sleep(0.01)
+            brightness(Area_Selected, 254)
+            time.sleep(0.01)
             animation_speed(Area_Selected, 20)
             Initial_Counter = 0
-            time.sleep(0.05)
+            time.sleep(0.01)
             publish.single("Christmas_Lights_Log", "Change_Effect_Button_Pressed", hostname="192.168.0.14")
         else:
             if Initial_Counter > Reset_Counter_Limit:
                 effect = random_effect()
-                time.sleep(0.05)
+                time.sleep(0.01)
                 brightness(8, 254)
-                time.sleep(0.05)
+                time.sleep(0.01)
                 effect_change(8, effect)
-                time.sleep(0.05)
+                time.sleep(0.01)
                 animation_speed(8, 20)
                 Initial_Counter = 0
                 publish.single("Christmas_Lights_Log", "Automatic_Control_Taking_Over", hostname="192.168.0.14")
