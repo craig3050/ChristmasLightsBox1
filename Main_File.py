@@ -183,17 +183,17 @@ def colour_change(area_name, R, G, B):
             colour_change(i, R, G, B)
 
 
-def brightness(area_name, brightness):
+def brightness(area_name, brightness_value):
     if area_name <= 7:
-        print("Area Number Recieved" + area_name)
+        print("Area Number Recieved" + str(area_name))
         area_name1 = area_name_translation(area_name)
-        message = "{\"state\":\"ON\",\"brightness\":" + str(brightness) + "}"
+        message = "{\"state\":\"ON\",\"brightness\":" + str(brightness_value) + "}"
         publish.single(area_name1, message, hostname="192.168.0.14")
     else:
         for i in range(1, 8):
             print(i)
-            brightness(i, brightness)
-    return 0
+            brightness(i, brightness_value)
+
 
 def effect_change(area_name, effect_name):
     if area_name <= 7:
