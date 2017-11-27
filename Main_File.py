@@ -282,7 +282,7 @@ def main():
     Animation_Speed_to_Colour_Change = 0
 
     Initial_Counter = 0
-    Reset_Counter_Limit = 10000
+    Reset_Counter_Limit = 1000
 
     init()  # Init interrupts, GPIO, ...
 
@@ -362,7 +362,7 @@ def main():
                 time.sleep(0.2)
                 effect_change(8, effect)
                 time.sleep(0.2)
-                animation_speed(8, 50)
+                animation_speed(8, 20)
                 Initial_Counter = 0
             else:
                 Initial_Counter += 1
