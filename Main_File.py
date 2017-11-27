@@ -154,23 +154,25 @@ def random_effect():
     else:
         return effect_17
 
+
 def area_name_translation(area_name):
     if area_name == 1:
-        return "lights/external/christmas1"
+        return "lights/external/christmas1/set"
     elif area_name == 2:
-        return "lights/external/christmas2"
+        return "lights/external/christmas2/set"
     elif area_name == 3:
-        return "lights/external/christmas3"
+        return "lights/external/christmas3/set"
     elif area_name == 4:
-        return "lights/external/christmas4"
+        return "lights/external/christmas4/set"
     elif area_name == 5:
-        return "lights/external/christmas5"
+        return "lights/external/christmas5/set"
     elif area_name == 6:
-        return "lights/external/christmas6"
+        return "lights/external/christmas6/set"
     elif area_name == 7:
-        return "lights/external/christmas7"
+        return "lights/external/christmas7/set"
     else:
-        return "lights/external/christmas1"
+        return "lights/external/christmas1/set"
+
 
 def colour_change(area_name, R, G, B):
     if area_name <= 7:
@@ -205,6 +207,7 @@ def effect_change(area_name, effect_name):
         for i in range(1, 8):
             effect_change(i, effect_name)
 
+
 def animation_speed(area_name, speed):
     if area_name <= 7:
         area_name1 = area_name_translation(area_name)
@@ -213,7 +216,6 @@ def animation_speed(area_name, speed):
     else:
         for i in range(1, 8):
             animation_speed(i, speed)
-
 
 
 # Rotarty encoder interrupt:
